@@ -1,0 +1,10 @@
+<h1>Welcome to Awesome Menus</h1>
+
+<%= form_for @menu, url: {action: "create"}, html: {class: "new_menu"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Add Menu" %>
+<% end %>
+
+<h2>Menus</h2><% @menus.each do |menu| %>
+  <div><%= menu.name %></div>
+<% end %>
