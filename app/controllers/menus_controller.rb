@@ -6,9 +6,12 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menu.create(params[:menu])
-    redirect_to root_path
+    @menu = Menu.new(name: params[:name])
+    if @menu.save
+      render :json => { new_menu: @menu.name }
+    else
+      redirect_to root_path
+    end
   end
 
 end
-
